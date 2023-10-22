@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/f318d295e9.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- html2canvas -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="clr-container">
+        <div class="clr-bar">
+          <input
+            type="text"
+            class="clr-input"
+            id="clr-input"
+            placeholder="e.g. #DC143C"
+          />
+          <button type="button" id="reload-color">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+          <button type="button" id="save-as-image">
+            <i class="fa-solid fa-image"></i>
+          </button>
+          <button type="button">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        </div>
+        <div class="main-clr-box" id="main-clr-box">
+          <div class="color-details">
+            <h3>
+              <span id="hex-display-name">DC143C</span>
+              <span id="clr-display-name">( primary )</span>
+            </h3>
+            <p class="colorDetail">
+              RGB
+              <span id="rgb-display-name">255, 255, 255</span>
+            </p>
+            <p class="colorDetail">
+              CMYK
+              <span id="cmyk-display-name">0%, 0%, 0%, 0%</span>
+            </p>
+            <p class="colorDetail">
+              HSL
+              <span id="hsl-display-name">0, 0%, 100%</span>
+            </p>
+          </div>
+        </div>
+        <div class="landscape-button">
+          <p>Press spacecbar for a random color palette!</p>
+          <button type="button" id="landscape-button">
+            <i
+              class="fa-solid fa-up-right-and-down-left-from-center"
+              id="maximize-icon"
+            ></i>
+            <i
+              class="fa-solid fa-down-left-and-up-right-to-center hidden"
+              id="minimize-icon"
+            ></i>
+          </button>
+        </div>
+        <div class="color-variations-section">
+          <div class="color-section" id="shades-section">
+            <p class="color-section-title">Shades</p>
+          </div>
+          <div class="color-section" id="tones-section">
+            <p class="color-section-title">Tones</p>
+          </div>
+          <div class="color-section" id="tints-section">
+            <p class="color-section-title">Tints</p>
+          </div>
+          <span id="copiedMessage" class="copied-message">Copied!</span>
+        </div>
+        <!-- Settings Modal -->
+        <div class="settings-modal">
+          <!-- Settings header bar -->
+          <div class="settings-bar">
+            <button type="button">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3>Settings</h3>
+            <button type="button" id="export-variables-button">
+              <i class="fa-solid fa-arrow-up-from-bracket"></i>
+            </button>
+          </div>
+          <!-- Settings container -->
+          <div class="settings-container">
+            <p>
+              You can specify the name of your variables. The default will be
+              e.g. '--primary-tint10' And you can define how many tint, shades
+              or tones you want to be generated.
+            </p>
+            <!-- setting for color name -->
+            <div class="setting">
+              <label for="clr-setting-name">Name of Color</label>
+              <input
+                type="text"
+                name="clr-setting-name"
+                id="clr-setting-name"
+                placeholder="e.g. primary"
+              />
+            </div>
+            <!-- settings for color's shades -->
+            <div class="settings-wrapper">
+              <div class="setting-wrapper">
+                <div class="setting">
+                  <label for="shade-setting-name">Name of Shades</label>
+                  <input
+                    type="text"
+                    name="shade-setting-name"
+                    id="shade-setting-name"
+                    placeholder="e.g. shade"
+                  />
+                </div>
+                <div class="setting">
+                  <label for="shade-setting-amount">Amount</label>
+                  <input
+                    type="number"
+                    name="shade-setting-amount"
+                    id="shade-setting-amount"
+                    min="0"
+                    max="20"
+                    value="7"
+                  />
+                </div>
+              </div>
+              <p class="setting-preview">
+                Variable preview:
+                <span
+                  class="variable-preview"
+                  id="shade-setting-variable-preview"
+                  >--primary-shade10</span
+                >
+              </p>
+            </div>
+            <!-- settings for color's tints -->
+            <div class="settings-wrapper">
+              <div class="setting-wrapper">
+                <div class="setting">
+                  <label for="tone-setting-name">Name of Tones</label>
+                  <input
+                    type="text"
+                    name="tone-setting-name"
+                    id="tone-setting-name"
+                    placeholder="e.g. tone"
+                  />
+                </div>
+                <div class="setting">
+                  <label for="tone-setting-amount">Amount</label>
+                  <input
+                    type="number"
+                    name="tone-setting-amount"
+                    id="tone-setting-amount"
+                    min="0"
+                    max="20"
+                    value="5"
+                  />
+                </div>
+              </div>
+              <p>
+                Variable preview:
+                <span
+                  class="variable-preview"
+                  id="tone-setting-variable-preview"
+                  >--primary-tone20</span
+                >
+              </p>
+            </div>
+            <!-- settings for color's tones -->
+            <div class="settings-wrapper">
+              <div class="setting-wrapper">
+                <div class="setting">
+                  <label for="tint-setting-name">Name of Tints</label>
+                  <input
+                    type="text"
+                    name="tint-setting-name"
+                    id="tint-setting-name"
+                    placeholder="e.g. tint"
+                  />
+                </div>
+                <div class="setting">
+                  <label for="tint-setting-amount">Amount</label>
+                  <input
+                    type="number"
+                    name="tint-setting-amount"
+                    id="tint-setting-amount"
+                    min="0"
+                    max="20"
+                    value="6"
+                  />
+                </div>
+              </div>
+              <p>
+                Variable preview:
+                <span
+                  class="variable-preview"
+                  id="tint-setting-variable-preview"
+                  >--primary-tint10</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="exportSuccessTooltip" class="export-success-tooltip">
+      CSS Variables Copied to Clipboard!
+    </div>
+    <footer class="footer">
+      <p>
+        Made with ❤️ Love! © Bento Palette
+        <span id="copyright-year">2023.</span>
+      </p>
+    </footer>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
