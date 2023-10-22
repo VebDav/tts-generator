@@ -51,7 +51,7 @@ footer {
   width: calc(100% - 4rem);
   max-width: 600px;
   min-height: calc(100vh - 7.4rem);
-  margin: 3.7rem 2rem;
+  margin: 1.5rem 2rem;
 }
 
 /* Styling for color-representation */
@@ -67,16 +67,24 @@ footer {
 
 .clr-bar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 100%;
 }
 
+.clr-bar-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
 .clr-input {
-  flex: 1;
-  /* height: 2rem; */
   margin-right: 1rem;
+  width: 100%;
 }
 
 input {
@@ -374,8 +382,7 @@ button:active {
 .settings-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  max-width: 600px;
+  width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1.5rem 0;
 }
@@ -411,7 +418,7 @@ button:active {
 .setting {
   display: flex;
   flex-direction: column;
-  /* margin: 1rem 0; */
+  width: 100%;
 }
 
 .setting label {
@@ -422,7 +429,7 @@ button:active {
 }
 
 .setting input[type="text"] {
-  width: 18rem;
+  width: 100%;
 }
 
 .setting input[type="number"] {
@@ -484,13 +491,62 @@ button:active {
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  /* Styles for devices bigger than mobile go here */
+@media (min-width: 390px) {
+  .clr-input {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .clr-bar-buttons {
+    margin-top: 1.5rem;
+  }
+
+  .main-clr-box {
+    height: 16rem;
+  }
+
+  .color-details h3 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .color-details h3 span:last-of-type {
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
+
   .landscape-button {
     justify-content: flex-end;
   }
 
   .landscape-button > p {
     display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  /* Styles for devices bigger than mobile go here */
+  .clr-bar {
+    flex-direction: row;
+  }
+
+  .clr-bar-buttons {
+    margin-top: 0;
+  }
+
+  .settings-wrapper {
+    width: 100%;
+  }
+
+  .landscape-button > p {
+    display: block;
+  }
+
+  .landscape-button {
+    justify-content: space-between;
+  }
+
+  .settings-modal {
+    height: 100%;
   }
 }
