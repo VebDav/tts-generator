@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
     <!-- html2canvas -->
@@ -28,27 +28,28 @@
   </head>
   <body>
     <div class="container">
+      <h1>Tints, Shades & Tones Generator</h1>
       <section class="clr-container">
-        <h1>Tints, Shades & Tones Generator</h1>
+        <!-- Color header for hex and random color -->
         <div class="clr-bar">
-          <input
-            type="text"
-            class="clr-input"
-            id="clr-input"
-            placeholder="e.g. #DC143C"
-          />
-          <div class="clr-bar-buttons">
-            <button type="button" id="reload-color">
-              <i class="fa-solid fa-rotate"></i>
-            </button>
-            <button type="button" id="save-as-image">
-              <i class="fa-solid fa-image"></i>
-            </button>
-            <button type="button">
-              <i class="fa-solid fa-gear"></i>
-            </button>
+          <div class="input-field-group">
+            <!-- input field -->
+            <input
+              type="text"
+              class="clr-input"
+              id="clr-input"
+              placeholder=" "
+              required
+            />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="clr-input">Enter A Hexcode</label>
           </div>
+          <button type="button" id="reload-color">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
         </div>
+        <!-- main color box -->
         <div class="main-clr-box" id="main-clr-box">
           <div class="color-details">
             <h3>
@@ -69,9 +70,9 @@
             </p>
           </div>
         </div>
-        <div class="landscape-button">
+        <div class="options-button-container">
           <p>Press spacebar for a random color palette!</p>
-          <button type="button" id="landscape-button">
+          <button type="button" class="landscape-button" id="landscape-button">
             <i
               class="fa-solid fa-up-right-and-down-left-from-center"
               id="maximize-icon"
@@ -81,16 +82,23 @@
               id="minimize-icon"
             ></i>
           </button>
+          <button type="button" id="save-as-image">
+            <i class="fa-solid fa-image"></i>
+          </button>
+          <button type="button">
+            <i class="fa-solid fa-gear"></i>
+          </button>
         </div>
+        <!-- color variations section -->
         <div class="color-variations-section">
           <div class="color-section" id="shades-section">
-            <p class="color-section-title">Shades</p>
+            <h4 class="color-section-title">Shades</h4>
           </div>
           <div class="color-section" id="tones-section">
-            <p class="color-section-title">Tones</p>
+            <h4 class="color-section-title">Tones</h4>
           </div>
           <div class="color-section" id="tints-section">
-            <p class="color-section-title">Tints</p>
+            <h4 class="color-section-title">Tints</h4>
           </div>
           <span id="copiedMessage" class="copied-message">Copied!</span>
         </div>
@@ -113,114 +121,154 @@
               e.g. '--primary-tint10' And you can define how many tint, shades
               or tones you want to be generated.
             </p>
+            <h3>CSS export variables</h3>
             <!-- setting for color name -->
             <div class="setting">
-              <label for="clr-setting-name">Name of Color</label>
-              <input
-                type="text"
-                name="clr-setting-name"
-                id="clr-setting-name"
-                placeholder="e.g. primary"
-              />
+              <div class="input-field-group">
+                <input
+                  type="text"
+                  name="clr-setting-name"
+                  class="clr-input"
+                  id="clr-setting-name"
+                  placeholder=" "
+                  required
+                />
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="clr-setting-name">Name of Color</label>
+              </div>
             </div>
             <!-- settings for color's shades -->
             <div class="settings-wrapper">
               <div class="setting-wrapper">
                 <div class="setting">
-                  <label for="shade-setting-name">Name of Shades</label>
-                  <input
-                    type="text"
-                    name="shade-setting-name"
-                    id="shade-setting-name"
-                    placeholder="e.g. shade"
-                  />
+                  <div class="input-field-group">
+                    <input
+                      type="text"
+                      name="shade-setting-name"
+                      class="clr-input"
+                      id="shade-setting-name"
+                      placeholder=" "
+                      required
+                    />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="shade-setting-name">Name of Shades</label>
+                  </div>
                 </div>
                 <div class="setting">
-                  <label for="shade-setting-amount">Amount</label>
-                  <input
-                    type="number"
-                    name="shade-setting-amount"
-                    id="shade-setting-amount"
-                    min="0"
-                    max="20"
-                    value="7"
-                  />
+                  <div class="input-field-group">
+                    <input
+                      type="number"
+                      name="shade-setting-amount"
+                      class="clr-input"
+                      id="shade-setting-amount"
+                      min="0"
+                      max="20"
+                      value="7"
+                      required
+                    />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="shade-setting-amount">Amount</label>
+                  </div>
                 </div>
               </div>
-              <p class="setting-preview">
+              <div class="setting-preview">
                 Variable preview:
-                <span
-                  class="variable-preview"
-                  id="shade-setting-variable-preview"
-                  >--primary-shade10</span
-                >
-              </p>
+                <br />
+                <p class="variable-preview" id="shade-setting-variable-preview">
+                  --primary-shade10
+                </p>
+              </div>
             </div>
             <!-- settings for color's tints -->
             <div class="settings-wrapper">
               <div class="setting-wrapper">
                 <div class="setting">
-                  <label for="tone-setting-name">Name of Tones</label>
-                  <input
-                    type="text"
-                    name="tone-setting-name"
-                    id="tone-setting-name"
-                    placeholder="e.g. tone"
-                  />
+                  <div class="input-field-group">
+                    <input
+                      type="text"
+                      name="tone-setting-name"
+                      class="clr-input"
+                      id="tone-setting-name"
+                      placeholder=" "
+                      required
+                    />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="tone-setting-name">Name of Tones</label>
+                  </div>
                 </div>
                 <div class="setting">
-                  <label for="tone-setting-amount">Amount</label>
-                  <input
-                    type="number"
-                    name="tone-setting-amount"
-                    id="tone-setting-amount"
-                    min="0"
-                    max="20"
-                    value="5"
-                  />
+                  <div class="input-field-group">
+                    <input
+                      type="number"
+                      name="tone-setting-amount"
+                      class="clr-input"
+                      id="tone-setting-amount"
+                      min="0"
+                      max="20"
+                      value="5"
+                      required
+                    />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="tone-setting-amount">Amount</label>
+                  </div>
                 </div>
               </div>
-              <p>
+              <div class="setting-preview">
                 Variable preview:
-                <span
-                  class="variable-preview"
-                  id="tone-setting-variable-preview"
-                  >--primary-tone20</span
-                >
-              </p>
+                <br />
+                <p class="variable-preview" id="tone-setting-variable-preview">
+                  --primary-tone20
+                </p>
+              </div>
             </div>
             <!-- settings for color's tones -->
             <div class="settings-wrapper">
               <div class="setting-wrapper">
                 <div class="setting">
-                  <label for="tint-setting-name">Name of Tints</label>
-                  <input
-                    type="text"
-                    name="tint-setting-name"
-                    id="tint-setting-name"
-                    placeholder="e.g. tint"
-                  />
+                  <div class="input-field-group">
+                    <input
+                      type="text"
+                      name="tint-setting-name"
+                      class="clr-input"
+                      id="tint-setting-name"
+                      placeholder=" "
+                      required
+                    />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="tint-setting-name">Name of Tints</label>
+                  </div>
                 </div>
                 <div class="setting">
-                  <label for="tint-setting-amount">Amount</label>
-                  <input
-                    type="number"
-                    name="tint-setting-amount"
-                    id="tint-setting-amount"
-                    min="0"
-                    max="20"
-                    value="6"
-                  />
+                  <div class="input-field-group">
+                    <input
+                      type="number"
+                      name="tint-setting-amount"
+                      class="clr-input"
+                      id="tint-setting-amount"
+                      min="0"
+                      max="20"
+                      value="6"
+                      required
+                    />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="tint-setting-amount">Amount</label>
+                  </div>
                 </div>
               </div>
-              <p>
+              <div class="setting-preview">
                 Variable preview:
-                <span
-                  class="variable-preview"
-                  id="tint-setting-variable-preview"
-                  >--primary-tint10</span
-                >
-              </p>
+                <br />
+                <p class="variable-preview" id="tint-setting-variable-preview">
+                  --primary-tint10
+                </p>
+              </div>
             </div>
           </div>
         </div>

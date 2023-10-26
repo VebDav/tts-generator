@@ -37,7 +37,7 @@ function captureScreen() {
       // Return true for any element you want to ignore
       return (
         element.classList.contains("settings-modal") ||
-        element.classList.contains("landscape-button") ||
+        element.classList.contains("options-button-container") ||
         element.classList.contains("clr-bar") ||
         element.classList.contains("footer")
       )
