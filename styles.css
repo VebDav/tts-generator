@@ -1,6 +1,6 @@
 :root {
   /* ========== Colors ========== */
-  --primary-color: #2196f3;
+  --primary-color: #0c5697;
   --secondary-color: #ffc107;
   --accent-color: #ff4081;
 
@@ -10,6 +10,7 @@
   --light-background: #fafafa;
   --dark-background: #121212;
 
+  --button-color: #2196f3;
   --button-hover-color: #1976d2;
 
   /* Typography */
@@ -99,7 +100,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color);
+  background-color: var(--button-color);
   border: none;
   border-radius: 50%;
   box-shadow: var(--material-box-shadow1);
@@ -334,8 +335,9 @@ label {
   margin-bottom: 2rem;
 }
 
-h4.color-section-title {
+h3.color-section-title {
   color: var(--text-color);
+  font-size: 1rem;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;

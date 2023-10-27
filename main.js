@@ -92,7 +92,7 @@ function updateColorDisplay(hexValue) {
     const contrastColor = getOptimalTextColor(r, g, b)
 
     // Select all the text elements inside mainClrBox
-    const textElements = mainClrBox.querySelectorAll("h3, p, .colorDetail span")
+    const textElements = mainClrBox.querySelectorAll("h2, p, .colorDetail span")
 
     // Loop through each text element and apply the contrast color
     textElements.forEach((element) => {
