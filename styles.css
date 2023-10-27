@@ -14,8 +14,8 @@
   --button-hover-color: #1976d2;
 
   /* Typography */
-  --primary-font: "Roboto", sans-serif;
-  --secondary-font: "Open Sans", sans-serif;
+  --primary-font: "Roboto", Arial, Helvetica, sans-serif;
+  --secondary-font: "Open Sans", Arial, Helvetica, sans-serif;
 
   /* ========== SHADOWS ========== */
   --main-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
