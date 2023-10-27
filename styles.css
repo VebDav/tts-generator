@@ -132,7 +132,7 @@ button:hover {
 
 input {
   color: var(--primary-color);
-  background: none;
+  background-color: var(--light-background);
   border: none;
   border-radius: none;
   border-bottom: 1px solid var(--primary-color);
