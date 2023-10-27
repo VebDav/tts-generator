@@ -2,7 +2,7 @@
   /* ========== Colors ========== */
   --primary-color: #0c5697;
   --secondary-color: #ffc107;
-  --accent-color: #ff4081;
+  --accent-color: #ad0038;
 
   --text-color: #263238;
   --text-white: #efefef;
@@ -45,6 +45,7 @@ body {
   background-color: var(--light-background);
   color: var(--text-color);
   font-family: var(--secondary-font);
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -507,24 +508,6 @@ h3.color-section-title {
   text-align: center;
 }
 
-.setting
-  > div.input-field-group
-  > input[type="number"]::-webkit-inner-spin-button,
-.setting
-  > div.input-field-group
-  > input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.setting > div.input-field-group > input[type="number"]::-moz-inner-spin-button,
-.setting
-  > div.input-field-group
-  > input[type="number"]::-moz-outer-spin-button {
-  -moz-appearance: none;
-  margin: 0;
-}
-
 .setting-wrapper div.setting:last-of-type {
   margin-left: 1rem;
   max-width: 4rem;
@@ -585,7 +568,7 @@ h3.color-section-title {
   color: var(--text-white);
   padding: 10px 20px;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 700;
   z-index: 1000;
   display: none;
   box-shadow: var(--main-box-shadow);
@@ -679,25 +662,5 @@ h3.color-section-title {
 
   .setting-wrapper div.setting:last-of-type {
     margin-left: 2rem;
-  }
-
-  .setting
-    > div.input-field-group
-    > input[type="number"]::-webkit-inner-spin-button,
-  .setting
-    > div.input-field-group
-    > input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: inner-spin-button;
-    margin: 0;
-  }
-
-  .setting
-    > div.input-field-group
-    > input[type="number"]::-moz-inner-spin-button,
-  .setting
-    > div.input-field-group
-    > input[type="number"]::-moz-outer-spin-button {
-    -moz-appearance: inner-spin-button;
-    margin: 0;
   }
 }
