@@ -243,12 +243,13 @@ label {
   padding-top: 2em;
 }
 
-.color-details h3 {
+.color-details h2 {
+  font-size: 1.25rem;
   letter-spacing: 3px;
   margin-bottom: 1rem;
 }
 
-.color-details h3 span:last-of-type {
+.color-details h2 span:last-of-type {
   font-size: 1rem;
   font-style: italic;
   font-weight: 300;
@@ -437,7 +438,8 @@ h4.color-section-title {
   width: 100%;
 }
 
-.settings-bar h3 {
+.settings-bar h2 {
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -463,7 +465,8 @@ h4.color-section-title {
   line-height: 1.5rem;
 }
 
-.settings-container > h3 {
+.settings-container > h2 {
+  font-size: 1.25rem;
   margin: 2rem 0 1rem;
   text-transform: capitalize;
 }
